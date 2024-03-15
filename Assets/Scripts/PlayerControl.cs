@@ -64,7 +64,7 @@ public class PlayerControl : MonoBehaviour
 
     //collison detection
     private bool canWalk(Vector3 targetPos){
-       if(Physics2D.OverlapCircle(targetPos,0.001f,layer_struct) != null){
+       if(Physics2D.OverlapCircle(targetPos,0.2f,layer_struct) != null){
             // if passes, solid object in place
             return false;
        }
