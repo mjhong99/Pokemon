@@ -10,13 +10,18 @@ public class PlayerControl : MonoBehaviour
     // Start is called before the first frame update
     public float movespeed;
     public LayerMask layer_struct;
+    public LayerMask layer_grass;
     private bool isMoving;
     private Vector2 input; 
     private Animator animator;
 
+    //test follow player 
+ 
+
     private void Awake(){
         animator = GetComponent<Animator>();
     }
+
 
     // Update is called once per frame
     void Update()
@@ -60,6 +65,8 @@ public class PlayerControl : MonoBehaviour
         transform.position = targetPos;
 
         isMoving = false;
+        //grass encounter logic
+        CheckEncounters();
     }
 
     //collison detection
@@ -69,5 +76,15 @@ public class PlayerControl : MonoBehaviour
             return false;
        }
        return true;
+    }
+
+    private void CheckEncounters(){
+        
+        if(Physics2D.OverlapCircle(transform.position,0.2f,layer_grass) != null){
+            // if not null, walked on grass tile
+            if(Random.Range(1,101) <= 10 ){
+                Debug.Log("A Wild Encounter");
+           }
+        }
     }
 }

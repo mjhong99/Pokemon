@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c0f7fd473a324e038aa4583d21b24d4, type: 3}
+  m_Name: Turtwig
+  m_EditorClassIdentifier: 
+  PkmName: Turtwig
+  description: 
+  frontSprite: {fileID: 21300000, guid: 21aecdc4e7cdf4d34bf6e4eb980bbc84, type: 3}
+  backSprite: {fileID: 21300000, guid: 262f5e110e18b44eba836a8eab9b425a, type: 3}
+  type1: 3
+  type2: 17
+  Hp: 55
+  Atk: 68
+  Def: 64
+  SpAtk: 45
+  SpDef: 55
+  Spd: 31
+  LearnSet:
+  - moveTemplate: {fileID: 11400000, guid: a4403e6160c6147d5af08378bbcebbb5, type: 2}
+    LearnLevel: 1
+  - moveTemplate: {fileID: 11400000, guid: 34ef9915c3da1446eb2daeff0642b98b, type: 2}
+    LearnLevel: 4
+  - moveTemplate: {fileID: 11400000, guid: 05e7867c3c3254b018ce92d5b41fa5c1, type: 2}
+    LearnLevel: 7

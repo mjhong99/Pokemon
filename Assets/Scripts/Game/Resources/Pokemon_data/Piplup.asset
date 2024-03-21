@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c0f7fd473a324e038aa4583d21b24d4, type: 3}
+  m_Name: Piplup
+  m_EditorClassIdentifier: 
+  PkmName: Piplup
+  description: 
+  frontSprite: {fileID: 21300000, guid: 59edc58faf1494c4c99df422cdab1c07, type: 3}
+  backSprite: {fileID: 21300000, guid: 28e0dee5eaa89431dac3d5c299b690a1, type: 3}
+  type1: 2
+  type2: 17
+  Hp: 53
+  Atk: 51
+  Def: 53
+  SpAtk: 61
+  SpDef: 56
+  Spd: 40
+  LearnSet:
+  - moveTemplate: {fileID: 11400000, guid: a8ac0414d94244930909fcd640a98fdf, type: 2}
+    LearnLevel: 1
+  - moveTemplate: {fileID: 11400000, guid: 34ef9915c3da1446eb2daeff0642b98b, type: 2}
+    LearnLevel: 4
+  - moveTemplate: {fileID: 11400000, guid: a61b460daac2c497db3de7d39a119bee, type: 2}
+    LearnLevel: 7
