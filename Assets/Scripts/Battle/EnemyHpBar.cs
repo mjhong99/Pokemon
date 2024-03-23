@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HpBar : MonoBehaviour
+public class EnemyHpBar : MonoBehaviour
 {
+
     [SerializeField] Image hpBar;
     [SerializeField] Color green = new Color((25f/255f),(192f/255f),(33f/255f));
     [SerializeField] Color yellow = new Color((230f/255f),(177f/255f),(73f/255f));
@@ -16,54 +17,54 @@ public class HpBar : MonoBehaviour
 
     void Start()
     {
-    // Find the "HealthGreen" GameObject and get its Image component
-    GameObject healthGreenObject = GameObject.Find("HealthGreen");
+    // Find the "EnemyHealthGreen" GameObject and get its Image component
+    GameObject EnemyHealthGreen = GameObject.Find("EnemyHealthGreen");
 
-    if (healthGreenObject != null)
+    if (EnemyHealthGreen != null)
     {
-        hpBar = healthGreenObject.GetComponent<Image>();
+        hpBar = EnemyHealthGreen.GetComponent<Image>();
         if (hpBar != null)
         {
-            Debug.Log("Image component found and assigned successfully.");
+            Debug.Log(" Enemy Image component found and assigned successfully.");
         }
         else
         {
-            Debug.LogWarning("Image component not found on HealthGreen GameObject.");
+            Debug.LogWarning("Enemy Image component not found on HealthGreen GameObject.");
         }
     }
     else
     {
-        Debug.LogWarning("HealthGreen GameObject not found.");
+        Debug.LogWarning("Enemy HealthGreen GameObject not found.");
     }
     // call this for testing the hp bar color
-    SetHP(0.09f);
+    SetEnemyHpBar(0.4f);
     }
 
-    public void SetHP(float hpNormalized){
+    public void SetEnemyHpBar(float hpNormalized){
 
         hpBar.transform.localScale = new Vector3(hpNormalized, 1f);
 
         if (hpNormalized > 0.5f){
-            SetBarColor(green);
+            SetEnemyBarColor(green);
         }
         else if (hpNormalized >0.1f){
-            SetBarColor(yellow);
+            SetEnemyBarColor(yellow);
         }
 
         else {
-            SetBarColor(red);
+            SetEnemyBarColor(red);
         }
 
 
     }
 
-    private void SetBarColor(Color color){
+    private void SetEnemyBarColor(Color color){
         
         if (hpBar != null){
             hpBar.color = color;
         }
         else {
-            Debug.LogWarning("Image Componenet not found in Hp bar");
+            Debug.LogWarning("Image Component not found in Hp bar");
         }
     }
 }

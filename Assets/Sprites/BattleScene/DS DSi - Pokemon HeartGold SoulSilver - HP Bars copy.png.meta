@@ -113,7 +113,7 @@ TextureImporter:
         width: 133
         height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -121,6 +121,27 @@ TextureImporter:
       bones: []
       spriteID: d1121b8d3c87a4e28b38cfab33383bb6
       internalID: -998330127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DS DSi - Pokemon HeartGold SoulSilver - HP Bars copy_1
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 71
+        width: 124
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 294185657f4844a23ac3e5b94b73bd75
+      internalID: -302425946
       vertices: []
       indices: 
       edges: []
@@ -141,6 +162,7 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       DS DSi - Pokemon HeartGold SoulSilver - HP Bars copy_0: -1202456985
+      DS DSi - Pokemon HeartGold SoulSilver - HP Bars copy_1: -302425946
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
