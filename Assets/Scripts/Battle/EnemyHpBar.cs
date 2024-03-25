@@ -37,7 +37,7 @@ public class EnemyHpBar : MonoBehaviour
         Debug.LogWarning("Enemy HealthGreen GameObject not found.");
     }
     // call this for testing the hp bar color
-    SetEnemyHpBar(0.4f);
+    //SetEnemyHpBar(0.4f);
     }
 
     public void SetEnemyHpBar(float hpNormalized){
@@ -67,4 +67,17 @@ public class EnemyHpBar : MonoBehaviour
             Debug.LogWarning("Image Component not found in Hp bar");
         }
     }
+
+    //animate enemyHpbar
+    public IEnumerator SetEnemyHpSmooth(float newHp){
+        float currHp = hpBar.transform.localScale.x;
+        float changeAmt = currHp -newHp;
+
+        while(currHp -newHp > Mathf.Epsilon){
+            currHp -= changeAmt * Time.deltaTime;
+            SetEnemyHpBar(currHp); //might cause problem ehre 
+            yield return null;
+        }
+        SetEnemyHpBar(newHp);
+    }    
 }

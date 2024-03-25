@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -36,7 +37,7 @@ public class HpBar : MonoBehaviour
         Debug.LogWarning("HealthGreen GameObject not found.");
     }
     // call this for testing the hp bar color
-    SetHP(0.09f);
+    //SetHP(0.09f);
     }
 
     public void SetHP(float hpNormalized){
@@ -54,7 +55,7 @@ public class HpBar : MonoBehaviour
             SetBarColor(red);
         }
 
-
+    
     }
 
     private void SetBarColor(Color color){
@@ -65,5 +66,18 @@ public class HpBar : MonoBehaviour
         else {
             Debug.LogWarning("Image Componenet not found in Hp bar");
         }
+    }
+
+    //animate HpBar
+    public IEnumerator SetHpSmooth(float newHp){
+        float currHp = hpBar.transform.localScale.x;
+        float changeAmt = currHp -newHp;
+
+        while(currHp -newHp > Mathf.Epsilon){
+            currHp -= changeAmt * Time.deltaTime;
+            SetHP(currHp); //might cause problem ehre 
+            yield return null;
+        }
+        SetHP(newHp);
     }
 }

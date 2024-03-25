@@ -10,9 +10,15 @@ public class EnemyBattleHud : MonoBehaviour
    [SerializeField] TextMeshProUGUI nameText;
    [SerializeField] TextMeshProUGUI levelText;
    [SerializeField] EnemyHpBar enemyHpBar;
+   Pokemon pkm;
    public void SetDataEnemy(Pokemon pokemon){
-        nameText.text = pokemon.PkmTemplate.GetPkmName();
-        levelText.text = "" + pokemon.Level;
-        enemyHpBar.SetEnemyHpBar((float) pokemon.CurrHp / pokemon.Hp());
+      pkm = pokemon;
+      nameText.text = pokemon.PkmTemplate.GetPkmName();
+      levelText.text = "" + pokemon.Level;
+      enemyHpBar.SetEnemyHpBar((float) pokemon.CurrHp / pokemon.Hp());
+   }
+
+   public IEnumerator UpdateEnemyHp(){
+      yield return enemyHpBar.SetEnemyHpSmooth((float) pkm.CurrHp / pkm.Hp());
    }
 }

@@ -13246,7 +13246,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   letterPerSecond: 30
+  highlightedColor: {r: 0.4273318, g: 0.6834332, b: 0.9339623, a: 1}
   dialogueText: {fileID: 774924148}
+  actionSelector: {fileID: 421852388}
+  moveSelector: {fileID: 1664374654}
+  moveDetails: {fileID: 276947784}
+  actionTexts:
+  - {fileID: 1485132916}
+  - {fileID: 676335650}
+  moveTexts:
+  - {fileID: 111255792}
+  - {fileID: 77437827}
+  - {fileID: 404954298}
+  - {fileID: 389274584}
+  ppText: {fileID: 946578897}
+  typeText: {fileID: 276700023}
 --- !u!1 &1275160298
 GameObject:
   m_ObjectHideFlags: 0

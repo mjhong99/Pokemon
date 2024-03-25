@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Pokemon 
 {
     public PokemonTemplate PkmTemplate {get; set;} 
@@ -65,6 +66,31 @@ public class Pokemon
     public int Speed(){
         int TotalSpd = Mathf.FloorToInt((PkmTemplate.GetSpd() * Level) / 100f) + 5;
         return TotalSpd;
+    }
+
+    public bool TakeDamage(Move move, Pokemon attacker){
+        
+        //formula for taking dmg
+        float modifiers = UnityEngine.Random.Range(0.85f, 1f);
+        float a = (2 * attacker.Level + 10) / 250f;
+
+        float d = a * move.Template.GetPower() * ((float)attacker.Attack() / Defense()) + 2;
+        int damage = Mathf.FloorToInt(d * modifiers);
+
+        CurrHp -= damage;
+        if(CurrHp <=0 ){
+            //pokemon fainted
+            CurrHp = 0;
+            return true;
+        }
+
+        return false;
+    }
+
+    //function that chooses random move for enemy
+    public Move GetRandomMove(){
+        int r = UnityEngine.Random.Range(0,Moves.Count);
+        return Moves[r];
     }
 }
 
