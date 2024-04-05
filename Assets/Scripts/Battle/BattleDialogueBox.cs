@@ -31,6 +31,7 @@ public class BattleDialogueBox : MonoBehaviour
             yield return new WaitForSeconds(1f/letterPerSecond); // show 30 letters in 1 second?
         }
         
+        yield return new WaitForSeconds(1f);
     }
 
     public void EnableDialogueText(bool enabled){

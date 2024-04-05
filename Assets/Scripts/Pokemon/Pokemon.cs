@@ -68,10 +68,25 @@ public class Pokemon
         return TotalSpd;
     }
 
-    public bool TakeDamage(Move move, Pokemon attacker){
-        
+    public DamageDetails TakeDamage(Move move, Pokemon attacker){
+
+        float critical = 1f;
+        if (UnityEngine.Random.value * 100f <= 6.25f){
+            //calc critical hit
+            critical = 2f;
+        }
+
+        float type = TypeChart.GetEffectiveness(move.Template.Get_Type(), this.PkmTemplate.GetType1()) * TypeChart.GetEffectiveness(move.Template.Get_Type(), this.PkmTemplate.GetType2());
+
+        //using class DamageDetails to specify which message plays
+        var damageDetails = new DamageDetails(){
+             TypeEffective = type,
+             Critical = critical,
+             Fainted = false
+        };
+
         //formula for taking dmg
-        float modifiers = UnityEngine.Random.Range(0.85f, 1f);
+        float modifiers = UnityEngine.Random.Range(0.85f, 1f) * type * critical;
         float a = (2 * attacker.Level + 10) / 250f;
 
         float d = a * move.Template.GetPower() * ((float)attacker.Attack() / Defense()) + 2;
@@ -81,10 +96,10 @@ public class Pokemon
         if(CurrHp <=0 ){
             //pokemon fainted
             CurrHp = 0;
-            return true;
+            damageDetails.Fainted = true;
         }
 
-        return false;
+        return damageDetails;
     }
 
     //function that chooses random move for enemy
@@ -94,3 +109,10 @@ public class Pokemon
     }
 }
 
+public class DamageDetails {
+
+    public bool Fainted {get; set;}
+    public float Critical {get; set;}
+    public float TypeEffective {get; set;}
+
+}

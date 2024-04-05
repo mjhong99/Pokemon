@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,12 +12,13 @@ public class PlayerControl : MonoBehaviour
     public float movespeed;
     public LayerMask layer_struct;
     public LayerMask layer_grass;
+    public event Action OnEncounter;
     private bool isMoving;
     private Vector2 input; 
     private Animator animator;
 
     //test follow player 
- 
+    
 
     private void Awake(){
         animator = GetComponent<Animator>();
@@ -24,7 +26,7 @@ public class PlayerControl : MonoBehaviour
 
 
     // Update is called once per frame
-    void Update()
+    public void HandleUpdate()
     {
         if(!isMoving){
             input.x = Input.GetAxisRaw("Horizontal"); // values for this is 1 or -1 which signify left/right
@@ -82,8 +84,10 @@ public class PlayerControl : MonoBehaviour
         
         if(Physics2D.OverlapCircle(transform.position,0.2f,layer_grass) != null){
             // if not null, walked on grass tile
-            if(Random.Range(1,101) <= 10 ){
-                Debug.Log("A Wild Encounter");
+            if(UnityEngine.Random.Range(1,101) <= 10 ){
+                // go into battle state
+                animator.SetBool("isMoving",false);
+                OnEncounter();
            }
         }
     }
